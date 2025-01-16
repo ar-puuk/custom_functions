@@ -1,4 +1,4 @@
-#' Load and Install R Packages
+#' @title Load and Install R Packages
 #'
 #' This function checks if the specified R packages are installed and loads them.
 #' If a package is not installed, it attempts to install it from the specified CRAN repositories.

@@ -1,4 +1,4 @@
-#' Load and Query an ESRI Feature Service Layer
+#' @title Load and Query an ESRI Feature Service Layer
 #'
 #' This function connects to an ESRI Feature Service, displays available layers if no ID is provided,
 #' and allows users to download and query a specific layer.

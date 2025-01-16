@@ -1,5 +1,7 @@
-#' Aggregate sf objects
+#' @title Aggregate sf objects
 #' Source: https://gist.github.com/rCarto/bb47aff0a02e808d2bf64f2d8c5db7d8#file-st_aggregate-r
+#'
+#' @details
 #' Geometries and attributes are aggregated.
 #'
 #' @param x sf object
