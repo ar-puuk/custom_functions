@@ -8,7 +8,6 @@
 #' @param fun function(s) to compute the summary statistics
 #'
 #' @return An sf object is returned
-#' @export
 #'
 #' @examples
 #' library(sf)
@@ -20,6 +19,7 @@
 #' plot(nc)
 #' plot(r)
 #'
+#'@export
 st_aggregate <- function(x, by, var, fun){
   var = c(by, var)
   fun = c("head", fun)

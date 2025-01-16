@@ -1,13 +1,12 @@
 #' Source: https://gist.github.com/dblodgett-usgs/cf87392c02d73f1b7d16153d2b66a8f3
 #'
-#' @title split lines
-#' @description Splits lines longer than a given threshold into the minimum number of pieces to all be under the given threshold.
-#' @param lines data.frame of class sf with LINESTRING sfc column.
-#' @param max_length maximum segment length to return
-#' @param id name of ID column in data.frame
-#' @return only the split lines.
-#' @importFrom dplyr group_by ungroup filter left_join select rename mutate
-#' @export
+#' @title Split Lines by Maximum Length
+#' @description Splits LINESTRING geometries longer than a given threshold into multiple smaller segments, ensuring all segments are under the threshold.
+#' @param lines A data.frame of class `sf` containing LINESTRING geometries.
+#' @param max_length The maximum length allowed for any segment.
+#' @param id The name of the ID column in the input data.frame.
+#' @return A data.frame of class `sf` containing the split LINESTRING geometries.
+#' @importFrom dplyr group_by ungroup filter select mutate left_join rename
 #'
 #' @examples
 #' library(sf)
@@ -28,6 +27,7 @@
 #' split_lines <- st_split_lines(lines, 500, id = "COMID")
 #' plot(split_lines)
 #'
+#' @export
 st_split_lines <- function(input_lines, max_length, id = "ID") {
   geom_column <- attr(input_lines, "sf_column")
 
@@ -102,14 +102,13 @@ st_split_lines <- function(input_lines, max_length, id = "ID") {
 # Second version of this function using lwgeom per: https://github.com/r-spatial/lwgeom/issues/16 #
 ###################################################################################################
 
-#' @title split lines
-#' @description Splits lines longer than a given threshold into the minimum number of pieces to all be under the given threshold.
-#' @param lines data.frame of class sf with LINESTRING sfc column.
-#' @param max_length maximum segment length to return
-#' @param id name of ID column in data.frame
-#' @return only the split lines.
-#' @importFrom dplyr group_by ungroup filter select mutate
-#' @export
+#' @title Split Lines by Maximum Length
+#' @description Splits LINESTRING geometries longer than a given threshold into multiple smaller segments, ensuring all segments are under the threshold.
+#' @param lines A data.frame of class `sf` containing LINESTRING geometries.
+#' @param max_length The maximum length allowed for any segment.
+#' @param id The name of the ID column in the input data.frame.
+#' @return A data.frame of class `sf` containing the split LINESTRING geometries.
+#' @importFrom dplyr group_by ungroup filter select mutate left_join rename
 #'
 #' @examples
 #' library(sf)
@@ -130,6 +129,7 @@ st_split_lines <- function(input_lines, max_length, id = "ID") {
 #' split_lines <- geo_split_lines(lines, 500, id = "COMID")
 #' plot(split_lines)
 #'
+#' @export
 geo_split_lines <- function(input_lines, max_length, id = "ID") {
   if(max_length < 50) warning("short max length detected, do you have your units right?")
 
