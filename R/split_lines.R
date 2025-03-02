@@ -1,7 +1,7 @@
 #' Source: https://gist.github.com/dblodgett-usgs/cf87392c02d73f1b7d16153d2b66a8f3
 #'
 #' @title Split Lines by Maximum Length
-#' @description Splits LINESTRING geometries longer than a given threshold into multiple smaller segments, ensuring all segments are under the threshold.
+#' @description Splits LINESTRING geometries longer than a given threshold into multiple smaller segments, ensuring all segments are under the threshold. Source: https://gist.github.com/dblodgett-usgs/cf87392c02d73f1b7d16153d2b66a8f3
 #' @param lines A data.frame of class `sf` containing LINESTRING geometries.
 #' @param max_length The maximum length allowed for any segment.
 #' @param id The name of the ID column in the input data.frame.
